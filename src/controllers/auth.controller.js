@@ -119,7 +119,8 @@ export const loginController = async (req, res) => {
                 status: 200,
                 payload: {
                     authorization_token,
-                    username: user_found.username
+                    username: user_found.username,
+                    user_id: user_found._id
                 }
             });
         }
