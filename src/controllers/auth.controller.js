@@ -99,7 +99,7 @@ export const loginController = async (req, res) => {
         if (!user_found.verified) {
             throw new ServerError('User not verified', 400);
         }
-        const passwordMatch = bcrypt.compare(password, user_found.password); //comparamos la contraseña
+        const passwordMatch = await bcrypt.compare(password, user_found.password); //comparamos la contraseña
         if (!passwordMatch) {
             throw new ServerError('Invalid password', 400);
         } else {
