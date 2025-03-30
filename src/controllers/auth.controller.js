@@ -118,7 +118,8 @@ export const loginController = async (req, res) => {
                 message: 'User logged in successfully',
                 status: 200,
                 payload: {
-                    authorization_token
+                    authorization_token,
+                    username: user_found.username
                 }
             });
         }

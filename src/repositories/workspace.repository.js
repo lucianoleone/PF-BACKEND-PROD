@@ -1,3 +1,4 @@
+import User from '../models/User.model.js'
 import Workspace from '../models/Workspace.model.js'
 import { ServerError } from '../utils/error.util.js'
 class WorkspaceRepository {
@@ -30,6 +31,17 @@ class WorkspaceRepository {
         await workspace_found.save()
         //-------------------------------------------------------------------------------------------//
 
+        return workspace_found
+    }
+
+    async findWorkspaceByMemberId({member_id}){
+        console.log(member_id)
+        const member_found = await User.findById(member_id)
+        console.log(member_found)
+        if(!member_found){
+            throw new ServerError('User not found', 404)
+        }
+        const workspace_found = await Workspace.find({members: member_id})
         return workspace_found
     }
 } //exportamos la funcion de creacion de workspace

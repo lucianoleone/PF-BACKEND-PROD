@@ -67,3 +67,36 @@ export const inviteUserToWorkspaceController = async (req, res) => {
 
     }
 }
+
+export const getAllWorkspacesController = async (req, res) => {
+    try {
+        const {user_id} = req.params
+        console.log(user_id)
+        const workspaces = await workspaceRepository.findWorkspaceByMemberId({ member_id: user_id })
+        res.json({
+            ok: true,
+            satus: 200,
+            message: 'Workspaces loaded successfully',
+            data: {
+                workspaces
+            }
+        })
+    }
+    catch (error) {
+        if (error.status) {
+
+            return res.send({
+                ok: false,
+                message: error.message,
+                status: error.status
+            })
+        }
+
+        return res.send({
+            ok: false,
+            message: 'Internal server error',
+            status: 500
+        })
+
+    }
+}
