@@ -13,7 +13,13 @@ import channelRouter from './routes/channel.router.js';
 //inicializacion
 const app = express(); //inicializamos express
 app.use(cors()); 
-app.use(cors({origin: ENVIROEMNT.URL_FRONTEND}));
+//app.use(cors({origin: ENVIROEMNT.URL_FRONTEND}));
+const corsOptions = {
+    origin: ENVIROEMNT.URL_FRONTEND,  // La URL de tu frontend en Vercel
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+app.use(cors(corsOptions));
 app.use(express.json()); //usamos el middleware para que express pueda interpretar json
 
 //rutas
