@@ -4,7 +4,7 @@ Sistema de mensajería inspirado en Slack, desarrollado como proyecto final para
 
 ## Descripción
 
-Backend desarrollado en Node.js que provee una API REST para gestionar un sistema de mensajería en tiempo real. Utiliza MongoDB como base de datos para almacenar información de usuarios, workspaces, canales y mensajes.
+Backend desarrollado en Node.js que provee una API para gestionar un sistema de mensajería en tiempo real. Utiliza MongoDB como base de datos para almacenar información de usuarios, workspaces, canales y mensajes.
 
 ## Características Principales
 
